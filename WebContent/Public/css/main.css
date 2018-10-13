@@ -1,0 +1,60 @@
+body{
+	margin:0px;
+	padding:0px;
+}
+
+#container{
+	margin:0px;
+	padding:0px;
+	width:100%;
+	height:100%;
+	overflow-x: hidden;
+    overflow-y: hidden;
+    position:fixed;
+    font-size:13px;
+}
+
+.main_top{
+	background:#2b333e;
+	border-bottom:1px lightgray dashed;
+	color:lightgray;
+	padding:25px 25px;
+}
+
+.main_bottom{
+	height:90%;
+}
+
+.main_bottom_sidebar{
+	height:100%;
+	background:#2b333e;
+	padding-right:1px;
+}
+
+.main_bottom_content{
+	height:100%;
+	padding-left:0px;
+}
+
+.page_contents{
+	width:99%;
+	margin:2px auto;
+}
+
+
+
+
+
+.error{
+	color:red;
+
+}
+
+/* WRAPPERS */
+.dashbard-1{height:100%;}
+#wrapper {
+  width: 100%;
+  height:100%;
+  overflow-x: hidden;
+}
+
