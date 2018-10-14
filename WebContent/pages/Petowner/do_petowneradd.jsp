@@ -20,8 +20,8 @@
   
    String[] ids=request.getParameterValues("id");
    String[] names=request.getParameterValues("name");
-   String[] password=request.getParameterValues("password");
-   String[] money=request.getParameterValues("money");
+   String[] pas=request.getParameterValues("password");
+   String[] moneys=request.getParameterValues("money");
  
    
    int len=names.length;
@@ -32,13 +32,10 @@
 	   //修改
 	   for(int i=0;i<len;i++){
 		   
-		   /* Pet pet=new Pet(Integer.parseInt(ids[i]),names[i],typeNames[i],Integer.parseInt(healths[i]),Integer.parseInt(loves[i]),sdf.parse(birthdays[i]),
-				   
-				   
-				   Integer.parseInt(owner_Ids[i]),Integer.parseInt(store_Ids[i]));*/
+		  
 		 
-		   PetOwner pet=new  PetOwner(Integer.parseInt(ids[i]),names[i],Integer.parseInt(password[i]),Integer.parseInt(money[i]));
-		   val=biz.update(PetOwner);
+		   PetOwner pet=new  PetOwner(Integer.parseInt(ids[i]),names[i],pas[i],Integer.parseInt(moneys[i]));
+		   val=biz.update(pet);
 		   if(val!=1){
 			   break;
 		   }
@@ -51,8 +48,8 @@
 	   } 
    }else{//增加
 	   for(int i=0;i<len;i++){
-		   Pet pet=new Pet(names[i],typeNames[i],Integer.parseInt(healths[i]),Integer.parseInt(loves[i]),sdf.parse(birthdays[i]),Integer.parseInt(owner_Ids[i]),Integer.parseInt(store_Ids[i]));
-		   val=biz.add(PetOwner);
+		   PetOwner pets=new  PetOwner(Integer.parseInt(ids[i]),names[i],pas[i],Integer.parseInt(moneys[i]));
+		   val=biz.add(pets);
 		   if(val!=1){
 			   break;
 		   }
@@ -70,7 +67,7 @@
 
 %>
 <body>
-   <h1>宠物上传服务端处理页面</h1>
+   <h1>宠物主人信息上传服务端处理页面</h1>
    
 </body>
 </html>

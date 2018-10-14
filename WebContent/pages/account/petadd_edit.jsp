@@ -15,7 +15,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>宠物添加</title>
+        <title>宠物主人信息添加</title>
 		<link href="../../Public/css/bootstrap.css" type="text/css" rel="stylesheet" />
 		<style type="text/css">
 		   
@@ -31,9 +31,7 @@
         </script>
     </head>
     <%
-        //为了判断本次进入该 页面，是为了做增加，还是做修改，我们要检查url中是否包含id参数
-        //如果不包含id参数，说明是添加
-        //如果是修改，就要把相应id 的宠物，从数据库取出，填列到相应表单元素中，以供用户修改
+        
         String s_id=request.getParameter("id");
         int id=0;
         
@@ -53,7 +51,7 @@
     <body>
     	<form action="do_petadd.jsp" method="post">
     	<table style="width:70%;margin:10px auto;" class="table table-bordered table-condensed table-hover table-responsive table-striped ">
-    		<caption class="text-center">增加宠物</caption>
+    		<caption class="text-center">增加宠物主人信息</caption>
 		       <tr>
 		       	 <td colspan="7" class="text-right" style="margin-right:15px;">
 		       	 	<a class="btn btn-xs btn-danger" href="javascript:history.go(-1);">
@@ -74,13 +72,10 @@
 		       
 		       <tr>
 		          
-		          <th>Name</th>
-		          <th>typeName</th>
-		          <th>health</th>
-		          <th>love</th>
-		          <th>birthday</th>
-		          <th>owner_Id</th>
-		          <th>store_Id</th>
+		          <th>name</th>
+		          <th>password</th>
+		          <th>money</th>
+		         
 		       </tr>
 		       
 		       <tr>
@@ -90,7 +85,7 @@
 		          	<input type="text" name="name" value="<%=pet.getName() %>" placeholder="输入名称" />
 		          </td>
 		          <td>
-		            <input type="text" name="typeName" value="<%=pet.getTypeName() %>" placeholder="输入类型名称" />
+		            <input type="password" name="typeName" value="<%=pet.getTypeName() %>" placeholder="输入类型名称" />
 		          </td>
 		          <td>
 		            <input type="text" name="health" value="<%=pet.getHealth() %>" placeholder="输入健康值" />
