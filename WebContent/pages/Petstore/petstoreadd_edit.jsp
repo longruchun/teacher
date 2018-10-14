@@ -15,7 +15,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>宠物主人信息添加</title>
+        <title>宠物商店信息添加</title>
 		<link href="../../Public/css/bootstrap.css" type="text/css" rel="stylesheet" />
 		<style type="text/css">
 		   
@@ -35,11 +35,11 @@
         String s_id=request.getParameter("id");
         int id=0;
         
-        PetOwner     pet=new  PetOwner();
+        PetStore pet=new PetStore();
         
         if(s_id!=null){
-        	id=Integer.parseInt(s_id);//得到宠物主人id,据以查询出对应宠物主人信息
-        	PetOwnerBiz_interface biz=new PetOwnerBiz_impl();
+        	id=Integer.parseInt(s_id);//得到宠物商店的id,据以查询出对应宠物宠物商店的信息
+        	PetStoreBiz_interface    biz=new PetStoreBiz_impl();
         	
         	pet=biz.getEntityById(id);
         	
@@ -49,9 +49,9 @@
     
     %>
     <body>
-    	<form action="do_petowneradd.jsp" method="post">
+    	<form action="do_petstoreadd.jsp" method="post">
     	<table style="width:70%;margin:10px auto;" class="table table-bordered table-condensed table-hover table-responsive table-striped ">
-    		<caption class="text-center">增加宠物主人信息</caption>
+    		<caption class="text-center">增加宠物</caption>
 		       <tr>
 		       	 <td colspan="7" class="text-right" style="margin-right:15px;">
 		       	 	<a class="btn btn-xs btn-danger" href="javascript:history.go(-1);">
@@ -74,8 +74,8 @@
 		          
 		          <th>name</th>
 		          <th>password</th>
-		          <th>money</th>
-		          
+		          <th>balance</th>
+		         
 		       </tr>
 		       
 		       <tr>
@@ -85,14 +85,15 @@
 		          	<input type="text" name="name" value="<%=pet.getName() %>" placeholder="输入名称" />
 		          </td>
 		          <td>
-		            <input type="password" name="password" value="<%=pet.getPassword() %>" placeholder="输入密码" />
+		            <input type="password"   name="password" value="<%=pet.getPassword() %>" placeholder="输入密码" />
 		          </td>
 		          <td>
-		            <input type="text" name="money" value="<%=pet.getMoney() %>" placeholder="输入元宝值" />
+		            <input type="text" name="balance" value="<%=pet.getBalance() %>" placeholder="输入账目" />
 		          </td>
-		         
-		         
 		          
+		        
+		            
+		         
 		       </tr>
 		       
 		       

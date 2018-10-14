@@ -42,9 +42,9 @@
 	   }
    
 	   if(val!=0){
-	        out.print("<script>alert('修改成功');location='petlist.jsp';</script>");
+	        out.print("<script>alert('修改成功');location='petownerlist.jsp';</script>");
 	   }else{
-		   out.print("<script>alert('修改失败');location='petlist.jsp';</script>");
+		   out.print("<script>alert('修改失败');location='petownerlist.jsp';</script>");
 	   } 
    }else{//增加
 	   for(int i=0;i<len;i++){
