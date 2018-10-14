@@ -15,18 +15,18 @@ if (request.getMethod().toLowerCase()=="post"){
    int val=0;
    if(s_id!=null){
 	   id=Integer.parseInt(s_id);
-	   IpetBiz biz=new petBiz_jdbcImpl();
+	   PetOwnerBiz_interface biz=new PetOwnerBiz_impl();
 	   val=biz.delete(id);
 	   
 	   if(val!=0){
-	        out.print("<script>alert('删除成功');location='petlist.jsp';</script>");
+	        out.print("<script>alert('删除成功');location='petownerlist.jsp';</script>");
 	   }else{
-		   out.print("<script>alert('删除失败');location='petlist.jsp';</script>");
+		   out.print("<script>alert('删除失败');location='petownerlist.jsp';</script>");
 	   } 
 	   
    }
 }else{
-	 out.print("<script>alert('非法删除');location='petlist.jsp';</script>");
+	 out.print("<script>alert('非法删除');location='petownerlist.jsp';</script>");
 }
 %>
 <body>

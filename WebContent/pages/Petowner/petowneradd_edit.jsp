@@ -131,7 +131,7 @@
 		             %>
 		                 <option value="<%=ps.getId()%>"
 		                    <%
-		                        if(ps.getId()==pet.getStore_Id()){
+		                        if(ps.getId()==pet.getId()){
 		                    %>
 		                        selected 
 		                    <%
