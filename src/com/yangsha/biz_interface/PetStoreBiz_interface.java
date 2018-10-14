@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.yangsha.entity.PetStore;
 
-public interface PetStoreBiz_interface extends Sellable, Buyable, Breedable, Accountable,IBaseBizable<PetStore> {
+public interface PetStoreBiz_interface extends Sellable, Buyable, Breedable,IBaseBizable<PetStore> {
 
 	PetStore login();
 	

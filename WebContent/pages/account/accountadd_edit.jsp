@@ -1,3 +1,7 @@
+
+<%@page import="com.yangsha.biz_impl.AccountBiz_impl"%>
+<%@page import="com.yangsha.biz_interface.AccountBiz_interface"%>
+<%@page import="com.yangsha.entity.Account"%>
 <%@page import="com.yangsha.biz_impl.petBiz_jdbcImpl"%>
 <%@page import="com.yangsha.biz_interface.IpetBiz"%>
 <%@page import="com.yangsha.entity.Pet"%>
@@ -15,7 +19,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>宠物主人信息添加</title>
+        <title>账户信息添加</title>
 		<link href="../../Public/css/bootstrap.css" type="text/css" rel="stylesheet" />
 		<style type="text/css">
 		   
@@ -35,13 +39,13 @@
         String s_id=request.getParameter("id");
         int id=0;
         
-        Pet pet=new Pet();
+       Account pet=new  Account();
         
         if(s_id!=null){
         	id=Integer.parseInt(s_id);//得到宠物id,据以查询出对应宠物
-        	IpetBiz biz=new petBiz_jdbcImpl();
+        	AccountBiz_interface  biz=new AccountBiz_impl();
         	
-        	pet=biz.getEntityById(id);
+        	pet= (Account)biz.getAll();
         	
         	
         }
@@ -82,70 +86,25 @@
 		          
 		          <td>
 		          	<input type="hidden" name="id" value="<%=pet.getId() %>" />
-		          	<input type="text" name="name" value="<%=pet.getName() %>" placeholder="输入名称" />
+		          	<input type="text" name="deal_type" value="<%=pet.getDeal_type() %>" placeholder="销售类型" />
 		          </td>
 		          <td>
-		            <input type="password" name="typeName" value="<%=pet.getTypeName() %>" placeholder="输入类型名称" />
+		            <input type="text" name="pet_id" value="<%=pet.getPet_Id() %>" placeholder="动物ID" />
 		          </td>
 		          <td>
-		            <input type="text" name="health" value="<%=pet.getHealth() %>" placeholder="输入健康值" />
+		            <input type="text" name="seller_id" value="<%=pet.getSell_Id() %>" placeholder="销售ID" />
 		          </td>
 		          <td>
-		            <input type="text" name="love" value="<%=pet.getLove() %>" placeholder="输入亲密度" /> 
+		            <input type="text" name="buy_id" value="<%=pet.getBuy_Id() %>" placeholder="买的id" /> 
 		          </td>
 		          <td>
-		            <input type="date" name="birthday" value="<%=pet.getBirthday() %>" placeholder="输入日期" />
+		            <input type="text" name="price" value="<%=pet.getPrice() %>" placeholder="价格" />
 		          </td>
-		          <td>
-		            <select name="owner_Id" >
-		            <%
-		            	PetOwnerBiz_interface biz=new PetOwnerBiz_impl();
-		                List<PetOwner> list=biz.getAll();
-		                Iterator<PetOwner> it=list.iterator();
-		                
-		                while(it.hasNext()){
-		                	PetOwner owner=it.next();
-		            %>
-		                <option value="<%=owner.getId()%>" 
-		                  <% 
-		                     if(owner.getId()==pet.getOwner_Id()){
-		                  %>
-		                     selected
-		                  <% 
-		                     }
-		                  %>
-		                ><%=owner.getName()%></option>
-		            <%
-		                }
-		            %> 
-		            </select>
+		          
+		           <td>
+		            <input type="date" name=" deal_time    " value="<%=pet.getDeal_Time()   %>" placeholder="处理时间" />
 		          </td>
-		          <td>
-		             <select name="store_Id">
-		             <%
-		                 PetStoreBiz_interface store_biz=new PetStoreBiz_impl();
-		                 List<PetStore> store_list=store_biz.getAll();
-		                 
-		                 Iterator<PetStore> s_it=store_list.iterator();
-		                 
-		                 while(s_it.hasNext()){
-		                	 PetStore ps=s_it.next();
-		                 
-		             %>
-		                 <option value="<%=ps.getId()%>"
-		                    <%
-		                        if(ps.getId()==pet.getStore_Id()){
-		                    %>
-		                        selected 
-		                    <%
-		                        }
-		                    %>
-		                 ><%=ps.getName()%></option>
-		             <%
-		                 }
-		             %>
-		             </select>  
-		          </td>
+		          
 		       </tr>
 		       
 		       

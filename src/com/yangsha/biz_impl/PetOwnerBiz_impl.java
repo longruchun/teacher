@@ -9,6 +9,7 @@ import com.yangsha.dao_impl.PetDaoImpl;
 import com.yangsha.dao_impl.PetOwnerDaoImpl;
 import com.yangsha.dao_interface.IPetDao;
 import com.yangsha.dao_interface.IPetOwnerDao;
+import com.yangsha.entity.Account;
 import com.yangsha.entity.Pet;
 import com.yangsha.entity.PetOwner;
 
@@ -94,6 +95,12 @@ public class PetOwnerBiz_impl implements PetOwnerBiz_interface {
 	public PetOwner getEntityById(int id) {
 		// TODO Auto-generated method stub
 		return ipod.getEntityById(id);
+	}
+
+	@Override
+	public List<Account> getAccountint(int store_Id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

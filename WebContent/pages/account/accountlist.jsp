@@ -1,3 +1,7 @@
+
+<%@page import="com.yangsha.biz_impl.AccountBiz_impl"%>
+<%@page import="com.yangsha.biz_interface.AccountBiz_interface"%>
+<%@page import="com.yangsha.entity.Account"%>
 <%@page import="com.yangsha.biz_impl.PetStoreBiz_impl"%>
 <%@page import="com.yangsha.biz_interface.PetStoreBiz_interface"%>
 <%@page import="com.yangsha.biz_impl.PetOwnerBiz_impl"%>
@@ -33,16 +37,16 @@
 </head>
 <body>
    <table style="width:70%;margin:10px auto;" class="table table-bordered table-condensed table-hover table-responsive table-striped ">
-       <caption class="text-center">宠物列表</caption>
+       <caption class="text-center">账目列表</caption>
        <tr>
-          <th>Id</th>
-          <th>Name</th>
-          <th>typeName</th>
-          <th>health</th>
-          <th>love</th>
-          <th>birthday</th>
-          <th>owner_Id</th>
-          <th>store_Id</th>
+          <th>id</th>
+          <th>deal_type</th>
+          <th>pet_Id</th>
+          <th>seller_Id</th>
+          <th>buy_Id</th>
+          <th>price</th>
+          <th>deal_Time</th>
+          
           <th style="width:120px;">操作</th>
        </tr>
        
@@ -60,25 +64,25 @@
            IpetBiz biz=new petBiz_jdbcImpl();
            PetOwnerBiz_interface  owner_biz=new PetOwnerBiz_impl();
            PetStoreBiz_interface  store_biz =new PetStoreBiz_impl();
+           AccountBiz_interface account_biz=new AccountBiz_impl();
        
-       
-           List<Pet> list=biz.getAll();
+           List<Account> list=account_biz.getAll();
            
-           Iterator<Pet> it=list.iterator();
+           Iterator<Account> it=list.iterator();
            
            while(it.hasNext()){
-        	  Pet pet=it.next(); 
+        	   Account pet=it.next(); 
        %> 
        
            <tr>
 	          <td><%=pet.getId() %></td>
-	          <td><%=pet.getName() %></td>
-	          <td><%=pet.getTypeName() %></td>
-	          <td><%=pet.getHealth() %></td>
-	          <td><%=pet.getLove() %></td>
-	          <td><%=pet.getBirthday() %></td>
-	          <td><%=owner_biz.getEntityById(pet.getOwner_Id()).getName() %></td>
-	          <td><%=store_biz.getEntityById(pet.getStore_Id()).getName() %></td>
+	          <td><%=pet.getDeal_type()%></td>
+	          <td><%=pet.getPet_Id() %></td>
+	          <td><%=pet.getSell_Id() %></td>
+	          <td><%=pet.getBuy_Id() %></td>
+	          <td><%=pet.getPrice() %></td>
+	           <td><%=pet.getDeal_Time() %></td>
+	         
 	          <td>
 	             <a class="btn btn-xs btn-warning" href="petadd_edit.jsp?id=<%=pet.getId() %>">
 	                     <i class="glyphicon glyphicon-pencil"></i> 修改
