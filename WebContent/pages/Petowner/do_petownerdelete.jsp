@@ -1,5 +1,6 @@
-<%@page import="com.yangsha.biz_impl.petBiz_jdbcImpl"%>
-<%@page import="com.yangsha.biz_interface.IpetBiz"%>
+
+<%@page import="com.yangsha.biz_impl.PetOwnerBiz_impl"%>
+<%@page import="com.yangsha.biz_interface.PetOwnerBiz_interface"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
